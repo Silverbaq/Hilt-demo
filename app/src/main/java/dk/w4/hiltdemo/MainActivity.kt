@@ -18,11 +18,7 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
         carsViewModel.carsLiveData.observe(this, Observer {
-            var text = ""
-            it.forEach {
-                text += "${it.title}\n"
-            }
-            tvDisplay.text = text
+            tvDisplay.text = it.joinToString(separator = "\n\n")
         })
 
         carsViewModel.onViewReady()
